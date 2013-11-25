@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <curl/curl.h>
 #include <errno.h>
+#include <string.h>
 
 int main(int argp, char** argv)
 {
@@ -16,19 +17,18 @@ int main(int argp, char** argv)
 
   int requestNumber = 0;
 
-  if(argp != 4)
+  if(argp != 3)
   {
-    printf("Usage: prog numRequests numProcesses logFile");
+    printf("Usage: prog numRequests logFile");
     return;
   }
 
   numRequests = atoi(argv[1]);
 
   /* Open the log file */
-  if( !(logFile = fopen(argv[3], "a")) )
+  if( !(logFile = fopen(argv[2], "a")) )
   {
-    printf("Could not open logfile:\n");
-    strerror(errno);
+    printf("Could not open logfile: %s\n", strerror(errno));
     return;
   }
 
@@ -58,6 +58,7 @@ int main(int argp, char** argv)
     }
     /* always cleanup */ 
     curl_easy_cleanup(curl);
+    fclose(logFile);
   }
   return 0;
 }
