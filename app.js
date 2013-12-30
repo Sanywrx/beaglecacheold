@@ -26,6 +26,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+
+/* For any request, returns the file 10k.html */
 app.use('/', 
 function (req, res) {
 

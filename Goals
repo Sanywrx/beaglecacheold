@@ -1,0 +1,11 @@
+What we want:
+
+To make a bunch of files with different names, with the number of files dependent on 
+how many things we want in memory/the cache.
+
+Task:
+
+Make program that creates file of same size (10k) with names 1 thru NumFiles.
+
+Then, make a client that requests these files at at random in the space 0 - NumFiles
+and logs the respones time to a log file.

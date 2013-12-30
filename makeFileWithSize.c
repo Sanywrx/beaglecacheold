@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <errno.h>
 
+
+/* 
+
+Writes a file called fileToWrite with number of bytes numBytes.
+
+*/
+
+
 int main(int argv, char** argc)
 {
 	int i = 0;
