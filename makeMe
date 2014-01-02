@@ -1,1 +1,5 @@
-gcc client.c /usr/lib/libcurl.3.dylib -o client
+node makeURLs.js 8738 urls/point2_8738obj.txt
+node makeURLs.js 17476 urls/point4_17476obj.txt
+node makeURLs.js 26214 urls/point6_26214obj.txt
+node makeURLs.js 34953 urls/point8_34953obj.txt
+
