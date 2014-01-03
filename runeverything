@@ -1,0 +1,7 @@
+bash point6sameSample
+sleep 100
+bash point6.sh
+sleep 100
+bash point8sameSample
+sleep 100
+bash point8.sh

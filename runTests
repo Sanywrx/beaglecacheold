@@ -1,0 +1,7 @@
+siege --quiet --internet -t3S -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/1"
+siege --quiet --internet -t3S -c20 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/20"
+siege --quiet --internet -t3S -c40 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/40"
+siege --quiet --internet -t3S -c60 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/60"
+siege --quiet --internet -t3S -c80 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/80"
+siege --quiet --internet -t3S -c100 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/100"
+siege --quiet --internet -t3S -c120 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"/Users/Dale/code/beaglecache/results/point2/100"

@@ -1,0 +1,66 @@
+<<COMMENT1
+siege --quiet -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -r8738
+sleep 5
+siege --verbose --internet -t5S -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt" > results/log1
+sleep 5
+siege --verbose --internet -t5S -c20 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c40 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c60 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c80 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c100 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c120 -f"/Users/Dale/code/beaglecache/urls/point2_8738obj.txt" -l"results.txt"
+sleep 10
+siege --quiet -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -r17476
+sleep 5
+siege --verbose --internet -t5S -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c20 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out1.txt
+sleep 5
+siege --verbose --internet -t5S -c40 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out2.txt
+sleep 5
+siege --verbose --internet -t5S -c60 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out3.txt
+sleep 5
+siege --verbose --internet -t5S -c80 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out4.txt
+sleep 5
+siege --verbose --internet -t5S -c100 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out5.txt
+sleep 5
+siege --verbose --internet -t5S -c120 -f"/Users/Dale/code/beaglecache/urls/point4_17476obj.txt" -l"results.txt" > out6.txt
+sleep 10
+siege --quiet -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -r26214
+sleep 5
+COMMENT1
+echo "start testing"
+siege --verbose --internet -t5S -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/1clients
+sleep 5
+siege --verbose --internet -t5S -c20 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/20clients
+sleep 5
+siege --verbose --internet -t5S -c40 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/40clients
+sleep 5
+siege --verbose --internet -t5S -c60 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/60clients
+sleep 5
+siege --verbose --internet -t5S -c80 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/80clients
+sleep 5
+siege --verbose --internet -t5S -c100 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/100clients
+sleep 5
+siege --verbose --internet -t5S -c120 -f"/Users/Dale/code/beaglecache/urls/point6_26214obj.txt" -l"results.txt" > results/26214/120clients
+<<COMMENT2
+sleep 10
+siege --quiet -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -r34953
+sleep 5
+siege --verbose --internet -t5S -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c20 -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c40 -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c60 -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c80 -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+sleep 5
+siege --verbose --internet -t5S -c100 -f"/Users/Dale/code/beaglecache/urls/point8_34953obj.txt" -l"results.txt"
+COMMENT2
