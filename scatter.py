@@ -66,9 +66,9 @@ colors=['r', 'g', 'b', 'm', 'y']
 
 for i in range(0, len(manyX)):
 	b = plt.plot(manyX[i], manyY[i], '-' + colors[i], label=str(labels[i]) + " KB" )
-legend()
+legend(loc=4)
 plt.xlabel("Concurrency")
 plt.ylabel("Throughput (MB/sec)")
 #plt.plot(manyX[0], manyY[0], '-m', manyX[1], manyY[1], '-b', manyX[2], manyY[2], '-g', manyX[3], manyY[3], '-r')
-#plt.show()
-plt.savefig('/Users/Dale/jp1/beaglecache/graphs/ConcurrencyVersusObjRamCacheSize')
+plt.show()
+#plt.savefig('/Users/Dale/jp1/beaglecache/graphs/ConcurrencyVersusObjRamCacheSize')

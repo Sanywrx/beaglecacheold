@@ -19,6 +19,7 @@ PAGE = 10 * BYTES_IN_KB
 baseURL = "http://192.168.2.11:3000/"
 URLSPATH = "urls/"
 LOGPATH = "logs/"
+VERBOSEPATH = "logs/verbose/"
 incrementsRAM = [RAM*.2, RAM*.4, RAM*.6, RAM*.8]
 #incrementsDisk = [DISK*.2, DISK*.4]
 incrementsDisk = [DISK*.2, DISK*.4, DISK*.6, DISK*.8]
@@ -71,17 +72,20 @@ def fillCache(numUrls):
 	filePath = URLSPATH + str(numUrls)
 	commandString = "siege --quiet -f " + filePath + " -r" + str(numUrls)
 	print commandString
+	if numUrls == 41960:
+		return True
 	os.system(commandString)
 	return True
 
 def runTestOpts(urlFile, timet, logfile):
 	maxClients = MAX_CLIENTS
 	messageString = "**file" + str(urlFile) + "clients"
-	commandString = "siege --internet --quiet -f " + urlFile + " -t" + timet + " -l" + logfile
+	commandString = "siege --internet --verbose -f " + urlFile + " -t" + timet + " -l" + logfile
 	clientTrials = range(0, maxClients, CLIENT_INCREMENTS)
 	clientTrials[0] = 1
 	for clientNum in clientTrials:
-		thisCommand = commandString + " -c" + str(clientNum) + " -m " + messageString + str(clientNum)
+		os.system("echo " + messageString + str(clientNum) + " >> " + VERBOSEPATH + re.findall(r'[0-9]+',urlFile)[0])
+		thisCommand = commandString + " -c" + str(clientNum) + " -m " + messageString + str(clientNum) + " >> " + VERBOSEPATH + re.findall(r'[0-9]+',urlFile)[0]
 		print "Command was " + thisCommand
 		os.system(thisCommand)
 		os.system("sleep " + str(SLEEP_TIME))
