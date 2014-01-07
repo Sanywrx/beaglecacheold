@@ -3,6 +3,8 @@ import csv
 import numpy as np
 import re
 from mpl_toolkits.mplot3d import Axes3D
+from pylab import *
+import collections
 
 '''
 REQRATE = 8
@@ -49,13 +51,24 @@ for row in data:
 '''
 
 urlRange = set(numUrls)
+urlRange2 = sorted([d for d in urlRange])
+urlRange = urlRange2
 manyY = []
 manyX = []
+labels = []
+
 for entry in urlRange:
 	manyY.append([thruput[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
 	manyX.append([concurrency[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
+	labels.append(entry)
 
+colors=['r', 'g', 'b', 'm', 'y']
 
-plt.plot(manyX[0], manyY[0], 'rs', manyX[1], manyY[1], 'bs', manyX[2], manyY[2], 'gs', manyX[3], manyY[3], 'r^')
+for i in range(0, len(manyX)):
+	b = plt.plot(manyX[i], manyY[i], '-' + colors[i], label=str(labels[i]) + " KB" )
+legend()
+plt.xlabel("Concurrency")
+plt.ylabel("Throughput (MB/sec)")
+#plt.plot(manyX[0], manyY[0], '-m', manyX[1], manyY[1], '-b', manyX[2], manyY[2], '-g', manyX[3], manyY[3], '-r')
 plt.show()
-#plt.savefig('/Users/Dale/jp1/beaglecache/graphs/RAMOnly ' + RAM + ' KBReqrate')
+#plt.savefig('/Users/Dale/jp1/beaglecache/graphs/ConcurrencyVersusObjRamCacheSize')
