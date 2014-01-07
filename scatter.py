@@ -14,13 +14,11 @@ NUMUSERS = 2
 RESTIME = 7
 TRIALNUM = 0
 CONCURRENCY = 10
-
-RAM = "209712"
 '''
+
 CONCURRENCY = 7
 THRUPUT = 6
 ELAPSEDTIME = 2
-
 
 data = csv.reader(open("/Users/Dale/jp1/beaglecache/logs/ramonly"), delimiter=',')
 
@@ -42,7 +40,7 @@ for row in data:
 		concurrency.append(float(row[CONCURRENCY]))
 		thruput.append(float(row[THRUPUT]))
 		elapsedTime.append(float(row[ELAPSEDTIME]))
-'''
+''''
 	if row[RAMSIZE] == RAM and row[TRIALNUM] == '1':
 		x.append(float(row[NUMUSERS]))
 		y.append(float(row[RESTIME]))
@@ -56,17 +54,18 @@ urlRange = urlRange2
 manyY = []
 manyX = []
 labels = []
-'''
+
 for entry in urlRange:
 	manyY.append([thruput[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
 	manyX.append([concurrency[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
 	labels.append(entry)
-'''
+
+print numUrls[0]
 
 cacheSize = map(lambda x: x*10, numUrls)
-
-manyX.append([cacheSize[d] for d in range(len(numUrls)) if elapsedTime[d] > 200 and numClients[d] == 60])
-manyY.append([thruput[d] for d in range(len(numUrls)) if elapsedTime[d] > 200 and numClients[d] == 60])
+print set(numClients)
+#x = [concurrency[d] for d in range(len(concurrency)) if elapsedTime[d] > 200 and numUrls[d] == numUrls[0] and numClients[d] != 1]
+#y = [thruput[d] for d in range(len(concurrency)) if elapsedTime[d] > 200 and numUrls[d] == numUrls[0] and numClients[d] != 1]
 
 colors=['r', 'g', 'b', 'm', 'y']
 
@@ -74,7 +73,10 @@ for i in range(0, len(manyX)):
 	b = plt.plot(manyX[i], manyY[i], '-' + colors[i], label=str(labels[i]) + " KB" )
 legend(loc=4)
 plt.xlabel("Size of DRAM Cache (KB)")
-plt.ylabel("Throughput (MB/sec)")
+
+#plt.plot(x,y, 'bo')
+#plt.ylabel("Throughput (MB/sec)")
+#plt.xlabel("Concurrency")
 #plt.plot(manyX[0], manyY[0], '-m', manyX[1], manyY[1], '-b', manyX[2], manyY[2], '-g', manyX[3], manyY[3], '-r')
-plt.show()
-#plt.savefig('/Users/Dale/jp1/beaglecache/graphs/ConcurrencyVersusObjRamCacheSize')
+#plt.show()
+plt.savefig('/Users/Dale/jp1/beaglecache/graphs/' + str(numUrls[0]) + 'urlsConcurrencyVersusThruPutRAM')
