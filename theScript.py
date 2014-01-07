@@ -20,15 +20,16 @@ baseURL = "http://192.168.2.11:3000/"
 URLSPATH = "urls/"
 LOGPATH = "logs/"
 VERBOSEPATH = "logs/verbose/"
+incrementsRAM = []
 #incrementsRAM = [RAM*.2, RAM*.4, RAM*.6, RAM*.8]
 #incrementsDisk = [DISK*.2, DISK*.4]
-#incrementsDisk = [DISK*.2, DISK*.4, DISK*.6, DISK*.8]
-incrementsDisk = [502*BYTES_IN_MB]
+incrementsDisk = [DISK*.2, DISK*.4, DISK*.6, DISK*.8]
+incrementsRAM = []
+#incrementsDisk = [502*BYTES_IN_MB]
 conglomerate = incrementsRAM + incrementsDisk
 
 def main():
 	congObjs = map(bytesToPages, conglomerate)
-
 	if len(sys.argv) < 2:
 		print "Use --ram or --disk or --ramdisk or --genurls"
 		return
@@ -70,12 +71,9 @@ def genUrls(fileNameDict, directoryName):
 
 # [,)
 def fillCache(numUrls):
-	return True
 	filePath = URLSPATH + str(numUrls)
 	commandString = "siege --quiet -f " + filePath + " -r" + str(numUrls)
 	print commandString
-	if numUrls == 41960:
-		return True
 	os.system(commandString)
 	return True
 

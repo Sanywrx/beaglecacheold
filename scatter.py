@@ -56,18 +56,24 @@ urlRange = urlRange2
 manyY = []
 manyX = []
 labels = []
-
+'''
 for entry in urlRange:
 	manyY.append([thruput[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
 	manyX.append([concurrency[d] for d in range(len(thruput)) if elapsedTime[d] > 200 and numUrls[d] == entry])
 	labels.append(entry)
+'''
+
+cacheSize = map(lambda x: x*10, numUrls)
+
+manyX.append([cacheSize[d] for d in range(len(numUrls)) if elapsedTime[d] > 200 and numClients[d] == 60])
+manyY.append([thruput[d] for d in range(len(numUrls)) if elapsedTime[d] > 200 and numClients[d] == 60])
 
 colors=['r', 'g', 'b', 'm', 'y']
 
 for i in range(0, len(manyX)):
 	b = plt.plot(manyX[i], manyY[i], '-' + colors[i], label=str(labels[i]) + " KB" )
 legend(loc=4)
-plt.xlabel("Concurrency")
+plt.xlabel("Size of DRAM Cache (KB)")
 plt.ylabel("Throughput (MB/sec)")
 #plt.plot(manyX[0], manyY[0], '-m', manyX[1], manyY[1], '-b', manyX[2], manyY[2], '-g', manyX[3], manyY[3], '-r')
 plt.show()
